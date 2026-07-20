@@ -22,6 +22,7 @@ Save this as `jupyter.sbatch` in your home or project directory on Midway.
 #SBATCH --job-name=jupyter_lab
 #SBATCH --account=<pi-group>        # your PI's RCC allocation, e.g. pi-jsmith
 #SBATCH --partition=<partition>     # e.g. caslake, bigmem, gpu2
+#SBATCH --reservation=<reservation> # e.g. event1
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1           # increase for parallel workloads
