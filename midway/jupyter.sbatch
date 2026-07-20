@@ -2,6 +2,7 @@
 #SBATCH --job-name=jupyter_lab
 #SBATCH --account=<pi-group>
 #SBATCH --partition=<partition>
+#SBATCH --reservation=<reservation>
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
