@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=jupyter_lab
-#SBATCH --account=<pi-group>
-#SBATCH --partition=<partition>
-#SBATCH --reservation=<reservation>
+#SBATCH --account=<pi-group>        # your PI's RCC allocation, e.g. pi-jsmith
+#SBATCH --partition=<partition>     # e.g. caslake, bigmem, gpu2
+#SBATCH --reservation=<reservation> # e.g. event1
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
+#SBATCH --cpus-per-task=1           # increase for parallel workloads
 #SBATCH --mem=16G
 #SBATCH --time=05:00:00
 #SBATCH --output=jupyter_%j.log
@@ -13,12 +13,12 @@
 
 module load python/miniforge-25.3.0
 
-node=$(hostname -s)
-port=$(shuf -i 15001-30000 -n 1)
+node=$(hostname -s)                 # short hostname of the compute node
+port=$(shuf -i 15001-30000 -n 1)   # random port — avoids collisions
 user=$(whoami)
 
 node_ip=$(getent hosts "$node" | awk '{print $1}')
-[[ -z "$node_ip" ]] && node_ip=$node
+[[ -z "$node_ip" ]] && node_ip=$node  # fall back to hostname if DNS lookup fails
 echo "DEBUG: node=$node  node_ip=$node_ip" 1>&2
 
 cluster=${SLURM_SUBMIT_HOST%%-*}
@@ -34,7 +34,7 @@ Jupyter Lab  |  job ${SLURM_JOB_ID}  |  ${node}:${port}
 
 1) On your LAPTOP, open a tunnel:
      ssh -N -L ${port}:${node_ip}:${port} ${user}@${login}
-     (if you add -f, then use it as "-f -o ExitOnForwardFailure=yes")
+     (add -f to background it: -f -o ExitOnForwardFailure=yes)
 2) Open this URL in your browser (token already included):
      http://localhost:${port}/lab?token=${JUPYTER_TOKEN}
 

@@ -1,31 +1,18 @@
 ---
 title: Jupyter Lab via SLURM
-parent: Midway (RCC @ UChicago)
-nav_order: 1
 ---
 
 # Jupyter Lab via SLURM
-{: .no_toc }
 
 Launch a Jupyter Lab server on a compute node and access it from your laptop using an SSH tunnel.
-{: .fs-6 .fw-300 }
-
----
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
 ## Why use this?
 
-{: .tip }
-Running notebooks on the login node is against RCC policy and will get your session killed under load.
-This workflow gives you a full compute node — RAM, CPUs, optional GPU — while keeping the familiar
-Jupyter interface in your local browser.
+> **Note:** Running notebooks on the login node is against RCC policy and will get your session killed under load.
+> This workflow gives you a full compute node — RAM, CPUs, optional GPU — while keeping the familiar
+> Jupyter interface in your local browser.
 
 ---
 
@@ -121,9 +108,8 @@ Copy the `ssh -N -L ...` line and run it in a terminal **on your local machine**
 ssh -N -L 27543:10.50.0.42:27543 cnetid@midway3.rcc.uchicago.edu
 ```
 
-{: .note }
-The terminal will hang — that's expected. The tunnel stays open as long as this process runs.
-To background it instead, use `-f -o ExitOnForwardFailure=yes` in place of `-N`.
+> **Note:** The terminal will hang — that's expected. The tunnel stays open as long as this process runs.
+> To background it instead, use `-f -o ExitOnForwardFailure=yes` in place of `-N`.
 
 ### 4. Open Jupyter Lab in your browser
 
