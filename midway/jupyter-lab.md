@@ -39,7 +39,7 @@ Jupyter interface in your local browser.
 
 ## The Script
 
-Save this as `jupyter.sbatch` in your home or project directory on Midway.
+Save this as `jupyter.sbatch` in your home or project directory on Midway, or [download it directly](https://raw.githubusercontent.com/rccUser001/notes/main/midway/jupyter.sbatch).
 
 ```bash
 #!/bin/bash
