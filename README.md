@@ -11,7 +11,7 @@ Contributions welcome — open a PR or file an issue.
 
 | Guide | Description |
 |---|---|
-| [Running Jupyter Lab via SLURM](midway/jupyter-lab.md) | Submit a batch job that launches Jupyter Lab and tunnel to it from your laptop |
+| [Running Jupyter Lab via SLURM](https://rccuser001.github.io/notes/midway/jupyter-lab/) | Submit a batch job that launches Jupyter Lab and tunnel to it from your laptop |
 
 ---
 
